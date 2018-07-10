@@ -2,7 +2,7 @@ creature_1_shark
 
 [OBJECT:CREATURE]
 
-Blacktip reef shark, Blue shark, Bull shark, Hammerhead shark, Nurse shark, Shortfin mako shark, Tiger shark, Whitetip reef shark -> Shark
+Angel shark, Blacktip reef shark, Blue shark, Bull shark, Hammerhead shark, Nurse shark, Shortfin mako shark, Tiger shark, Whitetip reef shark -> Shark
 Great white shark -> Giant shark
 
 [CREATURE:SHARK_GIANT]
