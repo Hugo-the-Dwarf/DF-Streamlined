@@ -2,6 +2,21 @@ c_variation_0_basic
 
 [OBJECT:CREATURE_VARIATION]
 
+Order of application:
+Remove tags are applied starting from the bottom, then convert tags from the bottom, then add tags from the top.
+
+Arguments:
+If APPLY_CREATURE_VARIATION in the creature raws sends in arguments, you can use them below as !ARG1, !ARG2, etc.  The GAIT variations below have some examples.  In the creature raws, if an argument is of the form "5|6", for example, it'll be converted to "5:6" in the creature variation, so you can handle variable-token arguments with the | character.
+
+Conditional tags:
+Change TAG to CTAG and add, for example, CV_REMOVE_CTAG:1:YES:<regular stuff> to require !ARG1 to be YES to execute the changes.
+
+
+***
+***
+***
+
+
 Arg1 is the YES for sweat, Arg2 is YES for tears, Arg3 is YES for spitting from emotions
 [CREATURE_VARIATION:SWEAT_CRY_SPIT]
 	[CV_NEW_CTAG:1:YES:SECRETION:CREATURE_MAT:MAT_FLUID:SWEAT:LIQUID:BY_CATEGORY:ALL:SKIN:EXERTION]
@@ -34,3 +49,11 @@ Arg1 is the YES for infections from wounds, Arg2 is YES for infections from rot
 	[CV_NEW_CTAG:1:YES:GETS_WOUND_INFECTIONS]
 	[CV_NEW_CTAG:2:YES:GETS_INFECTIONS_FROM_ROT]
 	[CV_NEW_TAG:PUS:CREATURE_MAT:MAT_FLUID:PUS:LIQUID]
+
+Arg1 is the creature to use the egg materials from, Arg2 is YES for LEATHERY shell, NO for NORMAL shell, Arg3 is for eggsize
+[CREATURE_VARIATION:EGG_MATERIALS]
+	[CV_NEW_CTAG:1:YES:EGG_MATERIAL:CREATURE_MAT:!ARG1:EGGSHELL_LEATHERY:SOLID]
+	[CV_NEW_CTAG:1:NO:EGG_MATERIAL:CREATURE_MAT:!ARG1:EGGSHELL:SOLID]
+	[CV_NEW_TAG:EGG_MATERIAL:CREATURE_MAT:!ARG1:EGG_WHITE:LIQUID]
+	[CV_NEW_TAG:EGG_MATERIAL:CREATURE_MAT:!ARG1:EGG_YOLK:LIQUID]
+	[CV_NEW_TAG:EGG_SIZE:!ARG3]
