@@ -17,7 +17,9 @@ Change TAG to CTAG and add, for example, CV_REMOVE_CTAG:1:YES:<regular stuff> to
 ***
 
 
-Arg1 is the YES for sweat, Arg2 is YES for tears, Arg3 is YES for spitting from emotions
+Arg1 is the YES for sweat
+Arg2 is YES for tears
+Arg3 is YES for spitting from emotions
 [CREATURE_VARIATION:SWEAT_CRY_SPIT]
 	[CV_NEW_CTAG:1:YES:SECRETION:CREATURE_MAT:MAT_FLUID:SWEAT:LIQUID:BY_CATEGORY:ALL:SKIN:EXERTION]
 	
@@ -35,8 +37,10 @@ Arg1 is the YES for sweat, Arg2 is YES for tears, Arg3 is YES for spitting from 
 		[CV_NEW_CTAG:3:YES:CDI:MAX_TARGET_NUMBER:C:1]
 		[CV_NEW_CTAG:3:YES:CDI:WAIT_PERIOD:30]
 
+		
+		
 Arg1 is the type (RED/BLUE/AQUA/YELLOW/ICHOR/GOO/)
-[CREATURE_VARIATION:HTD_BLOOD]
+[CREATURE_VARIATION:BLOOD_TYPE]
 	[CV_NEW_CTAG:1:RED:BLOOD:CREATURE_MAT:MAT_FLUID:BLOOD_RED:LIQUID]
 	[CV_NEW_CTAG:1:BLUE:BLOOD:CREATURE_MAT:MAT_FLUID:BLOOD_BLUE:LIQUID]
 	[CV_NEW_CTAG:1:AQUA:BLOOD:CREATURE_MAT:MAT_FLUID:BLOOD_AQUA:LIQUID]
@@ -44,13 +48,20 @@ Arg1 is the type (RED/BLUE/AQUA/YELLOW/ICHOR/GOO/)
 	[CV_NEW_CTAG:1:YELLOW:BLOOD:CREATURE_MAT:MAT_FLUID:ICHOR_YELLOW:LIQUID]
 	[CV_NEW_CTAG:1:GOO:BLOOD:CREATURE_MAT:MAT_FLUID:GOO:LIQUID]
 	
-Arg1 is the YES for infections from wounds, Arg2 is YES for infections from rot
+	
+	
+Arg1 is the YES for infections from wounds
+Arg2 is YES for infections from rot
 [CREATURE_VARIATION:PUS_INFECTWOUNDS_INFECTROT]
 	[CV_NEW_CTAG:1:YES:GETS_WOUND_INFECTIONS]
 	[CV_NEW_CTAG:2:YES:GETS_INFECTIONS_FROM_ROT]
 	[CV_NEW_TAG:PUS:CREATURE_MAT:MAT_FLUID:PUS:LIQUID]
 
-Arg1 is the creature to use the egg materials from, Arg2 is YES for LEATHERY shell, NO for NORMAL shell, Arg3 is for eggsize
+	
+	
+Arg1 is the creature to use the egg materials from
+Arg2 is YES for LEATHERY shell, NO for NORMAL shell
+Arg3 is for eggsize
 [CREATURE_VARIATION:EGG_MATERIALS]
 	[CV_NEW_CTAG:1:YES:EGG_MATERIAL:CREATURE_MAT:!ARG1:EGGSHELL_LEATHERY:SOLID]
 	[CV_NEW_CTAG:1:NO:EGG_MATERIAL:CREATURE_MAT:!ARG1:EGGSHELL:SOLID]
