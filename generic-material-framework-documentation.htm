@@ -1,0 +1,503 @@
+<html>
+
+	<head>
+		<title>GenericFramework</title>
+		
+		<style>
+			input {width:98%;}
+			table {background-color:#7F7F7F;}
+			table th {text-align:left;}
+			table td {text-align:left; vertical-align: text-top;}
+			table th, table td {padding:6px;}
+			table tr {background-color:#E5E5E5;}
+			table tr:nth-child(2n){background-color:#BFBFBF;}
+		
+			#quickselectlist li {margin-bottom:5px;}
+			#quickselectlist input {height:30px;}
+		
+			.yellow {background-color:#E8D109;}
+			.red {background-color:#E80951;}
+			.blue {background-color:#0951E8;}
+			.green {background-color:#0CE870;}
+			.containerback {background-color:#C3B8DB;}
+			
+			.lightgrey {background-color:#E5E5E5;}
+			.grey {background-color:#BFBFBF;}
+			.darkgrey {background-color:#7F7F7F;}
+		
+			.innerbody {width:90%;padding-left:15px;display:table-cell;}
+			.side {padding-left:12px;height:100%;display:table-cell;}
+			.leftroundedcorners {
+				border-top-left-radius:30px; 
+				//border-top-right-radius:10px; 
+				//border-bottom-right-radius:10px; 
+				border-bottom-left-radius:30px;
+				border-bottom:2px solid black;
+				border-right:1px solid black;
+				}
+			.rightroundedcorners {
+				//border-top-left-radius:30px; 
+				border-top-right-radius:30px; 
+				border-bottom-right-radius:30px; 
+				//border-bottom-left-radius:30px;
+				border-bottom:2px solid black;
+				border-right:1px solid black;
+				}
+			.sidebar {width:5%;height:100%;display:table-cell;}	
+			.cell {padding-left:10px;display:table-cell; width:100%;}
+			.column {display:table-cell;}
+			.container {width:98%;padding-bottom:25px;margin-bottom:20px;}
+			.table {display:table-cell; width:100%;}
+		</style>
+	</head>
+
+	<body>
+		<div class="container lightgrey" style="border:3px solid black">
+			<div class="sidebar green rightroundedcorners"></div>
+			<div class="innerbody">
+				<h1 id="header">Documentation of how to use the Generic Material Framework for Creatures</h1>
+				
+				<h2>Topics</h2>
+				<ol>
+					<li><a href="#overview">Overview</a></li>
+					<li><a href="#filecontents">CV Files and what's in them</a></li>
+					<li><a href="#cvdetails">Details for CVs</a></li>
+					<li><a href="#quickcopycv">Quick Copy CV Methods</a></li>
+				</ol>
+				
+				<div class="container">
+					<div class="side blue leftroundedcorners"></div>
+					<div class="cell containerback rightroundedcorners">
+						<h2 id="overview">Overview</h2>
+						<p>The goal of this framework is to allow modders to make generic materials for creatures much quicker and easier than the old method of "Create Creature with Material(s), Create new Tissue_Templates to use the generic material(s), create BDPs that use new templates" which if you wanted to do more than one type of generic material (white meat, red meat, reptiles, avians, canines, etc) it's a lot of cloning of templates just to do that.</p>
+						<p>That is where these Creature Vartiant files come into play, now you don't need to touch too much of vanilla (BDPs, Templates) you just need to setup your creatures that have the materials you want, then override the existing tissues in the creatures you want. Will there still be a lot of find/replace and fine tuning, yes, but now you don't have to worry about creating a whole batch of templates and other things to get it done.</p>
+						<p>This can also be used on a smaller scale, say you wanted to make Holy dwarves, Demon Dwarves, Hill Dwarves. And you didn't want there to be 3-4 or 50 dwarf materials, you can use this framework to say Holy Dwarves use vanilla DWARF materials, and now you've already cut down on the number of materials, but still keeping the core list of vanilla intact.</p>
+						<sub><a href="#header">top</a></sub>
+					</div>
+				</div>
+				
+				<div class="container">
+					<div class="side red leftroundedcorners"></div>
+					<div class="cell containerback rightroundedcorners">
+						<h2 id="filecontents">File Contents</h2>
+						<ul>
+							<li>
+								<h3>c_variation_0_basic</h3>
+								<ul>
+									<li>sweat_cry_spit (<strong>yes, yes, yes</strong>)</li>
+									<li>blood_type (<strong>blood_color</strong>)</li>
+									<li>pus_infectwounds_infectrot (<strong>yes, yes</strong>)</li>
+									<li>egg_layers (<strong>creature_id, is_leathery, eggsize</strong>)</li>
+								</ul>
+							</li>
+							<li>
+								<h3>c_variation_0_tissue_generic</h3>
+								<ul>
+									<li>copy_tissue_creature (<strong>tissue_id, creature_id</strong>)</li>
+									<li>copy_two_tissues_creature (<strong>tissue_id, tissue_id, creature_id</strong>)</li>
+									<li>add_tissue (<strong>tissue_id, tissue_template, material</strong>)</li>
+									<li>add_tissue_name (<strong>tissue_id, tissue_template, material, tissue_name</strong>)</li>
+									<li>mod_tissue_mat (<strong>tissue_id, material</strong>)</li>
+									<li>mod_tissue_mat_name (<strong>tissue_id, material, tissue_name</strong>)</li>
+								</ul>
+							</li>
+							<li>
+								<h3>c_variation_0_tissue_modular</h3>
+								<ul>
+									<li>strand_tissues_creature (<strong>creature_id, strand_type</strong>)</li>
+									<li>tendons_ligaments_creature (<strong>creature_id, healing_rate</strong>)</li>
+									<li>tendons_ligaments_default (<strong></strong>)</li>
+									<li>eye_features_tissue_creature (<strong>creature_id</strong>)</li>
+									<li>facial_hair_tissue_creature (<strong>creature_id</strong>)</li>
+									<li>nail_tissue_creature (<strong>creature_id, nail_type, layer_on_fingers, layer_on_toes</strong>)</li>					
+									<li>standard_tissues_creature (<strong>creature_id</strong>)</li>
+									<li>standard_tissues_creature_lite (<strong>creature_id</strong>)</li>
+								</ul>
+							</li>
+						</ul>
+						<sub><a href="#header">top</a></sub>
+					</div>
+				</div>
+				
+				<!--<div class="column">
+					c1
+				</div>
+				
+				<div class="column">
+					c2
+				</div>-->
+				
+				<div class="container">
+					<div class="side yellow leftroundedcorners"></div>
+					<div class="cell containerback rightroundedcorners">
+						<h2 id="cvdetails">Generic Method Details</h2>
+						<table>
+							<tr>
+								<th>File</th>
+								<th>Method</th>
+								<th>Args</th>
+								<th>Details/Data</th>
+							</tr>
+							<tr>
+								<td>c_variation_0_tissue_generic</td>
+								<td>ADD_TISSUE</td>
+								<td>
+									<ol>
+										<li>&lt;tissue_id&gt;</li>
+										<li>&lt;tissue_template&gt;</li>
+										<li>&lt;material&gt;</li>
+									</ol>
+								</td>
+								<td>
+									<ol>
+										<li>Can be anything as long as it hasn't been used before example would be SKIN.</li>
+										<li>This will be the TISSUE_TEMPLATE that this tissue will use.</li>
+										<li>The material that will override the tissue's material, however as it is a CV you will have to use '|' pipes in place of ':' colons. Example <strong>CREATURE_MAT|DOG|LEATHER</strong> or <strong>INORGANIC|IRON</strong></li>
+									</ol>
+									</br>Filled example:
+									<input type="text" readonly value="[APPLY_CREATURE_VARIATION:ADD_TISSUE:SKIN:SKIN_TEMPLATE:INORGANIC|IRON]" onclick="this.select();"/>
+								</td>
+							</tr>							
+							<tr>
+								<td>c_variation_0_tissue_generic</td>
+								<td>ADD_TISSUE_NAME</td>
+								<td>
+									<ol>
+										<li>&lt;tissue_id&gt;</li>
+										<li>&lt;tissue_template&gt;</li>
+										<li>&lt;material&gt;</li>
+										<li>&lt;tissue_name&gt;</li>
+									</ol>
+								</td>
+								<td>
+									<ol>
+										<li>Can be anything as long as it hasn't been used before example would be SKIN.</li>
+										<li>This will be the TISSUE_TEMPLATE that this tissue will use, so to match with <strong>1.</strong> you'd use SKIN_TEMPLATE but it can honestly be any other template you want FAT_TEMPLATE, etc.</li>
+										<li>The material that will override the tissue's material, however as it is a CV you will have to use '|' pipes in place of ':' colons. Example <strong>CREATURE_MAT|DOG|LEATHER</strong> or <strong>INORGANIC|IRON</strong></li>
+										<li>This will override the tissues name to what is given <strong>membrane|NP</strong> so like the example from <strong>1.</strong> this would create a tissue with the ID of SKIN using the SKIN_TEMPLATE the Material would be IRON but instead of being called "skin" it will be called "membrane".</li>
+									</ol>
+									</br>Filled example:
+									<input type="text" readonly value="[APPLY_CREATURE_VARIATION:ADD_TISSUE_NAME:SKIN:SKIN_TEMPLATE:INORGANIC|IRON:iron hide|NP]" onclick="this.select();"/>
+								</td>
+							</tr>
+							<tr>
+								<td>c_variation_0_basic</td>
+								<td>BLOOD_TYPE</td>
+								<td>&lt;blood_type&gt;</td>
+								<td>
+									&lt;blood_type&gt; can be one of these values: RED, BLUE, AQUA, YELLOW, ICHOR, GOO
+									</br>Filled example:
+									<input type="text" readonly value="[APPLY_CREATURE_VARIATION:BLOOD_TYPE:RED]" onclick="this.select();"/>
+								</td>								
+							</tr>
+							<tr>
+								<td>c_variation_0_tissue_generic</td>
+								<td>COPY_TISSUE_CREATURE</td>
+								<td>
+									<ol>
+										<li>&lt;tissue_id&gt;</li>
+										<li>&lt;creature_id&gt;</li>
+									</ol>
+								</td>
+								<td>
+									<ol>
+										<li>This method goes off the assumption that the &lt;tissue_id&gt; will also match a "tissue_id_TEMPLATE" Example is FAT this method assumes there is a FAT_TEMPLATE to use, however using something like IRONSKIN there will need to be an IRONSKIN_TEMPLATE which in vanilla does not exist.</li>
+										<li>This will be the creature that will be used to set the material, it also assumes that the &lt;tissue_id&gt; also matches the material_id, like the above example of FAT in vanilla there is a FAT material, FAT tissue template, and then the FAT tissue that is built from the tissue template and uses the FAT material.</li>
+									</ol>
+									<strong>***</strong> This method is mostly used in cases where you might want to USE an already familar vanilla material/tissue combo like having a bird use the FEATHER of another bird, so that you don't clutter up the number of materials in game (BIRD has FEATHER material, BIRD_EVIL_VERSION uses the FEATHER material from BIRD for its FEATHER tissue)
+									</br>Filled example:
+									<input type="text" readonly value="[APPLY_CREATURE_VARIATION:COPY_TISSUE_CREATURE:HAIR:CAT]" onclick="this.select();"/>
+								</td>
+							</tr>
+							<tr>
+								<td>c_variation_0_tissue_generic</td>
+								<td>COPY_TWO_TISSUES_CREATURE</td>
+								<td>
+									<ol>
+										<li>&lt;tissue_id&gt;</li>
+										<li>&lt;tissue_id&gt;</li>
+										<li>&lt;creature_id&gt;</li>
+									</ol>
+								</td>
+								<td>									
+									<ol>
+										<li>This method goes off the assumption that the &lt;tissue_id&gt; will also match a "tissue_id_TEMPLATE" Example is FAT this method assumes there is a FAT_TEMPLATE to use, however using something like IRONSKIN there will need to be an IRONSKIN_TEMPLATE which in vanilla does not exist.</li>
+										<li>This will be the creature that will be used to set the material, it also assumes that the &lt;tissue_id&gt; also matches the material_id, like the above example of FAT in vanilla there is a FAT material, FAT tissue template, and then the FAT tissue that is built from the tissue template and uses the FAT material.</li>
+									</ol>
+									</br>Filled example:
+									<input type="text" readonly value="[APPLY_CREATURE_VARIATION:COPY_TWO_TISSUES_CREATURE:HAIR:SKIN:CAT]" onclick="this.select();"/>
+								</td>
+							</tr>
+							<tr>
+								<td>c_variation_0_basic</td>
+								<td>EGG_LAYERS</td>
+								<td>
+									<ol>
+										<li>&lt;creature_id&gt;</li>
+										<li>&lt;is_leathery&gt;</li>
+										<li>&lt;eggsize&gt;</li>
+									</ol>
+								</td>
+								<td>									
+									<ol>
+										<li>Creature to take the egg materials from.</li>
+										<li>This can be only two values, YES or NO. YES will make the eggshell from a EGGSHELL_LEATHERY material, if it is NO it will make the eggshell with a EGGSHELL material. If this is any other value the egg will only have WHITE and YOLK</li>
+										<li>Size of the egg(s) in cm<sup>3</sup></li>
+									</ol>
+									</br>Filled example:
+									<input type="text" readonly value="[APPLY_CREATURE_VARIATION:EGG_LAYERS:SNAKE:NO:600]" onclick="this.select();"/>
+								</td>
+							</tr>
+							<tr>
+								<td>c_variation_0_tissue_modular</td>
+								<td>EYE_FEATURES_TISSUE_CREATURE</td>
+								<td>
+									<ol>
+										<li>&lt;creature_id&gt;</li>
+									</ol>
+								</td>
+								<td>									
+									<ol>
+										<li>Creature to take the HAIR materials from.</li>
+									</ol>
+									<strong>***</strong> this will also apply the eyebrows and eye lashes
+									</br>Filled example:
+									<input type="text" readonly value="[APPLY_CREATURE_VARIATION:EYE_FEATURES_TISSUE_CREATURE:ELF]" onclick="this.select();"/>
+								</td>
+							</tr>
+							<tr>
+								<td>c_variation_0_tissue_modular</td>
+								<td>FACIAL_HAIR_TISSUE_CREATURE</td>
+								<td>
+									<ol>
+										<li>&lt;creature_id&gt;</li>
+									</ol>
+								</td>
+								<td>									
+									<ol>
+										<li>Creature to take the HAIR materials from.</li>
+									</ol>
+									<strong>***</strong> unlike EYE_FEATURES_TISSUE_CREATURE this will not apply the tissues, please use [BODY_DETAIL_PLAN:FACIAL_HAIR_TISSUE_LAYERS] like usual.
+									</br>Filled example:
+									<input type="text" readonly value="[APPLY_CREATURE_VARIATION:FACIAL_HAIR_TISSUE_CREATURE:ELF]" onclick="this.select();"/>
+								</td>
+							</tr>
+							<tr>
+								<td>c_variation_0_tissue_generic</td>
+								<td>MOD_TISSUE_MAT</td>
+								<td>
+									<ol>
+										<li>&lt;tissue_id&gt;</li>
+										<li>&lt;material&gt;</li>
+									</ol>
+								</td>
+								<td>									
+									<ol>
+										<li>Tissue to start to modify.</li>
+										<li>The material that will override the tissue's material, however as it is a CV you will have to use '|' pipes in place of ':' colons. Example CREATURE_MAT|DOG|LEATHER or INORGANIC|IRON</li>
+									</ol>
+									</br>Filled example:
+									<input type="text" readonly value="[APPLY_CREATURE_VARIATION:MOD_TISSUE_MAT:FAT:CREATURE_MAT|HORSE|CHEESE]" onclick="this.select();"/>
+								</td>
+							</tr>
+							<tr>
+								<td>c_variation_0_tissue_generic</td>
+								<td>MOD_TISSUE_MAT_NAME</td>
+								<td>
+									<ol>
+										<li>&lt;tissue_id&gt;</li>
+										<li>&lt;material&gt;</li>
+										<li>&lt;tissue_name&gt;</li>
+									</ol>
+								</td>
+								<td>									
+									<ol>
+										<li>Tissue to start to modify.</li>
+										<li>The material that will override the tissue's material, however as it is a CV you will have to use '|' pipes in place of ':' colons. Example CREATURE_MAT|DOG|LEATHER or INORGANIC|IRON</li>
+										<li>This will override the tissues name to what is given.</li>
+									</ol>
+									</br>Filled example:
+									<input type="text" readonly value="[APPLY_CREATURE_VARIATION:MOD_TISSUE_MAT_NAME:MUSCLE:PLANT_MAT|PINE|WOOD:bark|NP]" onclick="this.select();"/>
+								</td>
+							</tr>
+							<tr>
+								<td>c_variation_0_tissue_modular</td>
+								<td>NAIL_TISSUE_CREATURE</td>
+								<td>
+									<ol>
+										<li>&lt;creature_id&gt;</li>
+										<li>&lt;nail_type&gt;</li>
+										<li>&lt;layer_on_fingers&gt;</li>
+										<li>&lt;layer_on_toes&gt;</li>
+									</ol>
+								</td>
+								<td>									
+									<ol>
+										<li>Creature to take the materials from.</li>
+										<li>Nail type to use which is NAIL, CLAW, or TALON.</li>
+										<li>If this is YES it will then apply this tissue to the FRONT of all bodyparts categorized as FINGER</li>
+										<li>If this is YES it will then apply this tissue to the FRONT of all bodyparts categorized as TOE</li>
+									</ol>
+									</br>Filled example:
+									<input type="text" readonly value="[APPLY_CREATURE_VARIATION:NAIL_TISSUE_CREATURE:DOG:NAIL:YES:YES]" onclick="this.select();"/>
+								</td>
+							</tr>
+							<tr>
+								<td>c_variation_0_basic</td>
+								<td>PUS_INFECTWOUNDS_INFECTROT</td>
+								<td>
+									<ol>
+										<li>&lt;infections_from_wounds&gt;</li>
+										<li>&lt;infections_from_rot&gt;</li>
+									</ol>
+								</td>
+								<td>									
+									<ol>
+										<li>Does this creature get infections from wounds, YES</li>
+										<li>Does this creature get infections from rot, YES</li>
+									</ol>
+									<strong>***</strong> This method will always apply the [PUS] tag.
+									</br>Filled example:
+									<input type="text" readonly value="[APPLY_CREATURE_VARIATION:STANDARD_TISSUES_CREATURE:HORSE]" onclick="this.select();"/>
+								</td>
+							</tr>
+							<tr>
+								<td>c_variation_0_tissue_modular</td>
+								<td>STANDARD_TISSUES_CREATURE</td>
+								<td>
+									<ol>
+										<li>&lt;creature_id&gt;</li>
+									</ol>
+								</td>
+								<td>									
+									<ol>
+										<li>Creature to take the materials from.</li>
+									</ol>
+									</br>Filled example:
+									<input type="text" readonly value="[APPLY_CREATURE_VARIATION:STANDARD_TISSUES_CREATURE:HORSE]" onclick="this.select();"/>
+								</td>
+							</tr>
+							<tr>
+								<td>c_variation_0_tissue_modular</td>
+								<td>STANDARD_TISSUES_CREATURE_LITE</td>
+								<td>
+									<ol>
+										<li>&lt;creature_id&gt;</li>
+									</ol>
+								</td>
+								<td>									
+									<ol>
+										<li>Creature to take the materials from.</li>
+									</ol>
+									<strong>***</strong> This version only adds internal materials like organs,
+									</br>Filled example:
+									<input type="text" readonly value="[APPLY_CREATURE_VARIATION:STANDARD_TISSUES_CREATURE_LITE:HORSE]" onclick="this.select();"/>
+								</td>
+							</tr>							
+							<tr>
+								<td>c_variation_0_tissue_modular</td>
+								<td>STRAND_TISSUES_CREATURE</td>
+								<td>
+									<ol>
+										<li>&lt;creature_id&gt;</li>
+										<li>&lt;strand_type&gt;</li>
+									</ol>
+								</td>
+								<td>									
+									<ol>
+										<li>Creature to take the materials from.</li>
+										<li>strand type to use which is HAIR, FUR, WOOL, or FEATHER. (however FEATHER is not a tissue_layer:strands, they are still regarded to act like hair like tissues)</li>
+									</ol>
+									</br>Filled example:
+									<input type="text" readonly value="[APPLY_CREATURE_VARIATION:STRAND_TISSUES_CREATURE:DOG:HAIR]" onclick="this.select();"/>
+								</td>
+							</tr>
+							<tr>
+								<td>c_variation_0_basic</td>
+								<td>SWEAT_CRY_SPIT</td>
+								<td>
+									<ol>
+										<li>&lt;sweats&gt;</li>
+										<li>&lt;cries&gt;</li>
+										<li>&lt;spits&gt;</li>
+									</ol>
+								</td>
+								<td>									
+									<ol>
+										<li>Does this creature have SKIN and can sweat if over exterted, YES</li>
+										<li>Does this creature cry when under stress, YES</li>
+										<li>Does this creature spit when angry or tormented, YES</li>
+									</ol>
+									</br>Filled example:
+									<input type="text" readonly value="[APPLY_CREATURE_VARIATION:SWEAT_CRY_SPIT:YES:YES:YES]" onclick="this.select();"/>
+								</td>
+							</tr>
+							<tr>
+								<td>c_variation_0_tissue_modular</td>
+								<td>TENDONS_LIGAMENTS_CREATURE</td>
+								<td>
+									<ol>
+										<li>&lt;creature_id&gt;</li>
+										<li>&lt;healing_rate&gt;</li>
+									</ol>
+								</td>
+								<td>									
+									<ol>
+										<li>Creature to use SINEW from.</li>
+										<li>Rate in which tendons and ligaments will heal at, default is 200 (twice as long as SKIN)</li>
+									</ol>
+									</br>Filled example:
+									<input type="text" readonly value="[APPLY_CREATURE_VARIATION:TENDONS_LIGAMENTS_CREATURE:HUMAN:200]" onclick="this.select();"/>
+								</td>
+							</tr>
+							<tr>
+								<td>c_variation_0_tissue_modular</td>
+								<td>TENDONS_LIGAMENTS_DEFAULT</td>
+								<td>
+									No Arguments
+								</td>
+								<td>									
+									Uses a Generic Creatures SINEW material, does everything for you.
+									</br>Filled example:
+									<input type="text" readonly value="[APPLY_CREATURE_VARIATION:TENDONS_LIGAMENTS_DEFAULT]" onclick="this.select();"/>
+								</td>
+							</tr>
+						</table>
+						<br/><br/><br/>
+						<sub><a href="#header">top</a></sub>
+					</div>
+				</div>
+				
+				<div class="container">
+					<div class="side blue leftroundedcorners"></div>
+					<div class="cell containerback rightroundedcorners">
+						<h2 id="quickcopycv">Quick Copy Templates</h2>
+						<p>Clicking a box will select all the text for you to CTRL-C and CTRL-V later.</p>
+						<p>Things are sorted as close as possbile to A-Z
+						<ul id="quickselectlist">
+							<li><input type="text" readonly value="[APPLY_CREATURE_VARIATION:ADD_TISSUE:id:template:material|sub_material]" onclick="this.select();"/></li>
+							<li><input type="text" readonly value="[APPLY_CREATURE_VARIATION:ADD_TISSUE_NAME:id:template:material|sub_material:sing|plur/NP]" onclick="this.select();"/></li>
+							<li><input type="text" readonly value="[APPLY_CREATURE_VARIATION:BLOOD_TYPE:blood_type]" onclick="this.select();"/></li>
+							<li><input type="text" readonly value="[APPLY_CREATURE_VARIATION:COPY_TISSUE_CREATURE:tissue:creature]" onclick="this.select();"/></li>
+							<li><input type="text" readonly value="[APPLY_CREATURE_VARIATION:COPY_TWO_TISSUES_CREATURE:tissue:tissue:creature]" onclick="this.select();"/></li>
+							<li><input type="text" readonly value="[APPLY_CREATURE_VARIATION:MOD_TISSUE_MAT:tissue_id:material|sub_material]" onclick="this.select();"/></li>
+							<li><input type="text" readonly value="[APPLY_CREATURE_VARIATION:MOD_TISSUE_MAT_NAME:tissue_id:material|sub_material:sing|plur/NP]" onclick="this.select();"/></li>
+							<li><input type="text" readonly value="[APPLY_CREATURE_VARIATION:NAIL_TISSUE_CREATURE:creature_id:nail_type:layer_on_fingers:layer_on_toes]" onclick="this.select();"/></li>
+							<li><input type="text" readonly value="[APPLY_CREATURE_VARIATION:PUS_INFECTWOUNDS_INFECTROT:infections_from_wounds:infections_from_rot]" onclick="this.select();"/></li>
+							<li><input type="text" readonly value="[APPLY_CREATURE_VARIATION:STANDARD_TISSUES_CREATURE:creature_id]" onclick="this.select();"/></li>
+							<li><input type="text" readonly value="[APPLY_CREATURE_VARIATION:STANDARD_TISSUES_CREATURE_LITE:creature_id]" onclick="this.select();"/></li>
+							<li><input type="text" readonly value="[APPLY_CREATURE_VARIATION:STRAND_TISSUES_CREATURE:creature_id:strand_type]" onclick="this.select();"/></li>
+							<li><input type="text" readonly value="[APPLY_CREATURE_VARIATION:SWEAT_CRY_SPIT:does_sweat:does_cry:does_spit]" onclick="this.select();"/></li>
+							<li><input type="text" readonly value="[APPLY_CREATURE_VARIATION:TENDONS_LIGAMENTS_CREATURE:creature_id:healing_rate]" onclick="this.select();"/></li>
+							<li><input type="text" readonly value="[APPLY_CREATURE_VARIATION:TENDONS_LIGAMENTS_DEFAULT]" onclick="this.select();"/></li>
+						</ul>
+						<sub><a href="#header">top</a></sub>
+					</div>
+				</div>
+					
+				</div>
+			</div>
+		</div>
+	</body>
+
+</html>
