@@ -220,10 +220,7 @@
 									</ol>
 								</td>
 								<td>									
-									<ol>
-										<li>This method goes off the assumption that the &lt;tissue_id&gt; will also match a "tissue_id_TEMPLATE" Example is FAT this method assumes there is a FAT_TEMPLATE to use, however using something like IRONSKIN there will need to be an IRONSKIN_TEMPLATE which in vanilla does not exist.</li>
-										<li>This will be the creature that will be used to set the material, it also assumes that the &lt;tissue_id&gt; also matches the material_id, like the above example of FAT in vanilla there is a FAT material, FAT tissue template, and then the FAT tissue that is built from the tissue template and uses the FAT material.</li>
-									</ol>
+									Exactly like COPY_TISSUE_CREATURE only you can copy two tissues at the same time, mostly used for HOOF and HORN combos.
 									</br>Filled example:
 									<input type="text" readonly value="[APPLY_CREATURE_VARIATION:COPY_TWO_TISSUES_CREATURE:HAIR:SKIN:CAT]" onclick="this.select();"/>
 								</td>
