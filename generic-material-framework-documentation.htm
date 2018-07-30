@@ -93,8 +93,10 @@
 							<li>
 								<h3>c_variation_0_tissue_generic</h3>
 								<ul>
-									<li>copy_tissue_creature (<strong>tissue_id, creature_id</strong>)</li>
-									<li>copy_two_tissues_creature (<strong>tissue_id, tissue_id, creature_id</strong>)</li>
+									<li>copy_creature_tissue (<strong>creature_id, tissue_id</strong>)</li>
+									<li>copy_creature_tissue_template (<strong>creature_id, tissue_id, tissue_template</strong>)</li>
+									<li>copy_creature_tissue_template_name (<strong>creature_id, tissue_id, tissue_template, tissue_name</strong>)</li>
+									<li>copy_two_creature_tissues (<strong>creature_id, tissue_id, tissue_id</strong>)</li>
 									<li>add_tissue (<strong>tissue_id, tissue_template, material</strong>)</li>
 									<li>add_tissue_name (<strong>tissue_id, tissue_template, material, tissue_name</strong>)</li>
 									<li>mod_tissue_mat (<strong>tissue_id, material</strong>)</li>
@@ -192,38 +194,77 @@
 							</tr>
 							<tr>
 								<td>c_variation_0_tissue_generic</td>
-								<td>COPY_TISSUE_CREATURE</td>
+								<td>COPY_CREATURE_TISSUE</td>
 								<td>
 									<ol>
-										<li>&lt;tissue_id&gt;</li>
 										<li>&lt;creature_id&gt;</li>
+										<li>&lt;tissue_id&gt;</li>
 									</ol>
 								</td>
 								<td>
-									<ol>
-										<li>This method goes off the assumption that the &lt;tissue_id&gt; will also match a "tissue_id_TEMPLATE" Example is FAT this method assumes there is a FAT_TEMPLATE to use, however using something like IRONSKIN there will need to be an IRONSKIN_TEMPLATE which in vanilla does not exist.</li>
+									<ol>										
 										<li>This will be the creature that will be used to set the material, it also assumes that the &lt;tissue_id&gt; also matches the material_id, like the above example of FAT in vanilla there is a FAT material, FAT tissue template, and then the FAT tissue that is built from the tissue template and uses the FAT material.</li>
+										<li>This method goes off the assumption that the &lt;tissue_id&gt; will also match a "tissue_id_TEMPLATE" Example is FAT this method assumes there is a FAT_TEMPLATE to use, however using something like IRONSKIN there will need to be an IRONSKIN_TEMPLATE which in vanilla does not exist.</li>
 									</ol>
 									<strong>***</strong> This method is mostly used in cases where you might want to USE an already familar vanilla material/tissue combo like having a bird use the FEATHER of another bird, so that you don't clutter up the number of materials in game (BIRD has FEATHER material, BIRD_EVIL_VERSION uses the FEATHER material from BIRD for its FEATHER tissue)
 									</br>Filled example:
-									<input type="text" readonly value="[APPLY_CREATURE_VARIATION:COPY_TISSUE_CREATURE:HAIR:CAT]" onclick="this.select();"/>
+									<input type="text" readonly value="[APPLY_CREATURE_VARIATION:COPY_CREATURE_TISSUE:CAT:HAIR]" onclick="this.select();"/>
 								</td>
 							</tr>
 							<tr>
 								<td>c_variation_0_tissue_generic</td>
-								<td>COPY_TWO_TISSUES_CREATURE</td>
+								<td>COPY_CREATURE_TISSUE_TEMPLATE</td>
 								<td>
 									<ol>
-										<li>&lt;tissue_id&gt;</li>
-										<li>&lt;tissue_id&gt;</li>
 										<li>&lt;creature_id&gt;</li>
+										<li>&lt;tissue_id&gt;</li>
+										<li>&lt;tissue_template&gt;</li>
+									</ol>
+								</td>
+								<td>
+									<ol>										
+										<li>Same as COPY_CREATURE_TISSUE arguement 1</li>
+										<li>Same as COPY_CREATURE_TISSUE arguement 2</li>
+										<li>Tissue_Template that should be used to copy an existing tissue</li>
+									</ol>
+									</br>Filled example:
+									<input type="text" readonly value="[APPLY_CREATURE_VARIATION:COPY_CREATURE_TISSUE_TEMPLATE:CAT:HAIR:HAIR_TEMPLATE]" onclick="this.select();"/>
+								</td>
+							</tr>
+							<tr>
+								<td>c_variation_0_tissue_generic</td>
+								<td>COPY_CREATURE_TISSUE_TEMPLATE_NAME</td>
+								<td>
+									<ol>
+										<li>&lt;creature_id&gt;</li>
+										<li>&lt;tissue_id&gt;</li>
+										<li>&lt;tissue_template&gt;</li>
+										<li>&lt;tissue_name&gt;</li>
+									</ol>
+								</td>
+								<td>
+									<ol>										
+										<li>Same as COPY_CREATURE_TISSUE arguement 1</li>
+										<li>Same as COPY_CREATURE_TISSUE arguement 2</li>
+										<li>Tissue_Template that should be used to copy an existing tissue</li>
+										<li>Name the tissue should use.</li>
+									</ol>
+									</br>Filled example:
+									<input type="text" readonly value="[APPLY_CREATURE_VARIATION:COPY_CREATURE_TISSUE_TEMPLATE_NAME:CAT:HAIR:HAIR_TEMPLATE:fur|NP]" onclick="this.select();"/>
+								</td>
+							</tr>
+							<tr>
+								<td>c_variation_0_tissue_generic</td>
+								<td>COPY_TWO_CREATURE_TISSUES</td>
+								<td>
+									<ol>
+										<li>&lt;creature_id&gt;</li>
+										<li>&lt;tissue_id&gt;</li>
+										<li>&lt;tissue_id&gt;</li>
 									</ol>
 								</td>
 								<td>									
-									<ol>
-										<li>This method goes off the assumption that the &lt;tissue_id&gt; will also match a "tissue_id_TEMPLATE" Example is FAT this method assumes there is a FAT_TEMPLATE to use, however using something like IRONSKIN there will need to be an IRONSKIN_TEMPLATE which in vanilla does not exist.</li>
-										<li>This will be the creature that will be used to set the material, it also assumes that the &lt;tissue_id&gt; also matches the material_id, like the above example of FAT in vanilla there is a FAT material, FAT tissue template, and then the FAT tissue that is built from the tissue template and uses the FAT material.</li>
-									</ol>
+									Exactly like COPY_TISSUE_CREATURE only you can copy two tissues at the same time, mostly used for HOOF and HORN combos.
 									</br>Filled example:
 									<input type="text" readonly value="[APPLY_CREATURE_VARIATION:COPY_TWO_TISSUES_CREATURE:HAIR:SKIN:CAT]" onclick="this.select();"/>
 								</td>
@@ -478,8 +519,10 @@
 							<li><input type="text" readonly value="[APPLY_CREATURE_VARIATION:ADD_TISSUE:id:template:material|sub_material]" onclick="this.select();"/></li>
 							<li><input type="text" readonly value="[APPLY_CREATURE_VARIATION:ADD_TISSUE_NAME:id:template:material|sub_material:sing|plur/NP]" onclick="this.select();"/></li>
 							<li><input type="text" readonly value="[APPLY_CREATURE_VARIATION:BLOOD_TYPE:blood_type]" onclick="this.select();"/></li>
-							<li><input type="text" readonly value="[APPLY_CREATURE_VARIATION:COPY_TISSUE_CREATURE:tissue:creature]" onclick="this.select();"/></li>
-							<li><input type="text" readonly value="[APPLY_CREATURE_VARIATION:COPY_TWO_TISSUES_CREATURE:tissue:tissue:creature]" onclick="this.select();"/></li>
+							<li><input type="text" readonly value="[APPLY_CREATURE_VARIATION:COPY_CREATURE_TISSUE:creature:tissue]" onclick="this.select();"/></li>
+							<li><input type="text" readonly value="[APPLY_CREATURE_VARIATION:COPY_CREATURE_TISSUE_TEMPLATE:creature:tissue:tissue_template]" onclick="this.select();"/></li>
+							<li><input type="text" readonly value="[APPLY_CREATURE_VARIATION:COPY_CREATURE_TISSUE_TEMPLATE_NAME:creature:tissue:tissue_template:tissue_name]" onclick="this.select();"/></li>
+							<li><input type="text" readonly value="[APPLY_CREATURE_VARIATION:COPY_TWO_CREATURE_TISSUES:creature:tissue:tissue]" onclick="this.select();"/></li>
 							<li><input type="text" readonly value="[APPLY_CREATURE_VARIATION:MOD_TISSUE_MAT:tissue_id:material|sub_material]" onclick="this.select();"/></li>
 							<li><input type="text" readonly value="[APPLY_CREATURE_VARIATION:MOD_TISSUE_MAT_NAME:tissue_id:material|sub_material:sing|plur/NP]" onclick="this.select();"/></li>
 							<li><input type="text" readonly value="[APPLY_CREATURE_VARIATION:NAIL_TISSUE_CREATURE:creature_id:nail_type:layer_on_fingers:layer_on_toes]" onclick="this.select();"/></li>
