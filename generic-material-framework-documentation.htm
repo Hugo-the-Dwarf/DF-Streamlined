@@ -82,6 +82,14 @@
 						<h2 id="filecontents">File Contents</h2>
 						<ul>
 							<li>
+								<h3>b_detail_plan_0_basic</h3>
+								<ul>
+									<li>vertebrate_tissue_layers_cartilage_suffix (<strong>skin, fat, muscle, bone, tissue_id_suffix</strong>)</li>
+									<li>exoskeleton_tissue_layers_suffix (<strong>chitin, fat, muscle, tissue_id_suffix</strong>)</li>
+									<li>mollusc_tissue_layers_suffix (<strong>skin, fat, muscle, tissue_id_suffix</strong>)</li>
+								</ul>
+							</li>
+							<li>
 								<h3>c_variation_0_basic</h3>
 								<ul>
 									<li>sweat_cry_spit (<strong>yes, yes, yes</strong>)</li>
@@ -112,8 +120,8 @@
 									<li>eye_features_tissue_creature (<strong>creature_id</strong>)</li>
 									<li>facial_hair_tissue_creature (<strong>creature_id</strong>)</li>
 									<li>nail_tissue_creature (<strong>creature_id, nail_type, layer_on_fingers, layer_on_toes</strong>)</li>					
-									<li>standard_tissues_creature (<strong>creature_id</strong>)</li>
-									<li>standard_tissues_creature_lite (<strong>creature_id</strong>)</li>
+									<li>standard_creature_tissues (<strong>creature_id</strong>)</li>
+									<li>standard_creature_tissues_lite (<strong>creature_id</strong>)</li>
 								</ul>
 							</li>
 						</ul>
@@ -139,6 +147,75 @@
 								<th>Method</th>
 								<th>Args</th>
 								<th>Details/Data</th>
+							</tr>
+							<tr>
+								<td>b_detail_plan_0_basic</td>
+								<td>EXOSKELETON_TISSUE_LAYERS_SUFFIX</td>
+								<td>
+									<ol>
+										<li>&lt;structural_tissue_layer&gt;</li>
+										<li>&lt;fat_tissue_layer&gt;</li>
+										<li>&lt;muscle_tissue_layer&gt;</li>
+										<li>&lt;tissue_id_suffix&gt;</li>
+									</ol>
+								</td>
+								<td>
+									<ol>
+										<li>This is normally CHITIN but can be anything you want</li>
+										<li>This is basically used for FAT layers</li>
+										<li>This is basically MUSCLE layers</li>
+										<li>This will add to all tissue ids (even the ones passed in) to be _"SUFFIX" that you pass in, so basically if you used <strong>[BODY_DETAIL_PLAN:this-method:CHITIN:FAT:MUSCLE:TOUGH]</strong> the inner workings would translate say a line like this: <strong>[BP_LAYERS:BY_CATEGORY:BODY:ARG3_ARG4:6:ARG2_ARG4:1:ARG1_ARG4:2]</strong> into <strong>[BP_LAYERS:BY_CATEGORY:BODY:MUSCLE_TOUGH:6:FAT_TOUGH:1:CHITIN_TOUGH:2]</strong> of course all organ or hard references will also get suffixed with _"SUFFIX"</li>
+									</ol>
+									</br>Filled example:
+									<input type="text" readonly value="[BODY_DETAIL_PLAN:EXOSKELETON_TISSUE_LAYERS_SUFFIX:CHITIN:FAT:MUSCLE:TOUGH]" onclick="this.select();"/>
+								</td>
+							</tr>
+							<tr>
+								<td>b_detail_plan_0_basic</td>
+								<td>MOLLUSC_TISSUE_LAYERS_SUFFIX</td>
+								<td>
+									<ol>
+										<li>&lt;skin_tissue_layer&gt;</li>
+										<li>&lt;fat_tissue_layer&gt;</li>
+										<li>&lt;muscle_tissue_layer&gt;</li>
+										<li>&lt;tissue_id_suffix&gt;</li>
+									</ol>
+								</td>
+								<td>
+									<ol>
+										<li>This is normally SKIN but can be anything you want</li>
+										<li>This is basically used for FAT layers</li>
+										<li>This is basically MUSCLE layers</li>
+										<li>This will add to all tissue ids (even the ones passed in) to be _"SUFFIX" that you pass in, so basically if you used <strong>[BODY_DETAIL_PLAN:this-method:SKIN:FAT:MUSCLE:TOUGH]</strong> the inner workings would translate say a line like this: <strong>[BP_LAYERS:BY_CATEGORY:BODY:ARG3_ARG4:6:ARG2_ARG4:1:ARG1_ARG4:2]</strong> into <strong>[BP_LAYERS:BY_CATEGORY:BODY:MUSCLE_TOUGH:6:FAT_TOUGH:1:SKIN_TOUGH:2]</strong> of course all organ or hard references will also get suffixed with _"SUFFIX"</li>
+									</ol>
+									</br>Filled example:
+									<input type="text" readonly value="[BODY_DETAIL_PLAN:MOLLUSC_TISSUE_LAYERS_SUFFIX:SKIN:FAT:MUSCLE:TOUGH]" onclick="this.select();"/>
+								</td>
+							</tr>
+							<tr>
+								<td>b_detail_plan_0_basic</td>
+								<td>VERTEBRATE_TISSUE_LAYERS_CARTILAGE_SUFFIX</td>
+								<td>
+									<ol>
+										<li>&lt;skin_tissue_layer&gt;</li>
+										<li>&lt;fat_tissue_layer&gt;</li>
+										<li>&lt;muscle_tissue_layer&gt;</li>
+										<li>&lt;bone_tissue_layer&gt;</li>
+										<li>&lt;tissue_id_suffix&gt;</li>
+									</ol>
+								</td>
+								<td>
+									<ol>
+										<li>This is normally SKIN but can be anything you want</li>
+										<li>This is basically used for FAT layers</li>
+										<li>This is basically MUSCLE layers</li>
+										<li>This is basically BONE layers</li>
+										<li>This will add to all tissue ids (even the ones passed in) to be _"SUFFIX" that you pass in, so basically if you used <strong>[BODY_DETAIL_PLAN:this-method:SKIN:FAT:MUSCLE:BONE:TOUGH]</strong> the inner workings would translate say a line like this: <strong>[BP_LAYERS:BY_CATEGORY:LEG_UPPER:ARG4_ARG5:25:ARG3_ARG5:25:ARG2_ARG5:5:ARG1_ARG5:1]</strong> into <strong>[BP_LAYERS:BY_CATEGORY:LEG_UPPER:BONE_TOUGH:25:MUSCLE_TOUGH:25:FAT_TOUGH:5:SKIN_TOUGH:1]</strong> of course all organ or hard references will also get suffixed with _"SUFFIX"</li>
+									</ol>
+									<strong>***</strong> This method assumes there is a CARTILAGE_"SUFFIX" tissue, and will apply it as it would with vanilla's VERTEBRATE_TISSUE_LAYERS if ARG5 was CARTILAGE instead of SUFFIX.
+									</br>Filled example:
+									<input type="text" readonly value="[BODY_DETAIL_PLAN:VERTEBRATE_TISSUE_LAYERS_CARTILAGE_SUFFIX:SKIN:FAT:MUSCLE:BONE:TOUGH]" onclick="this.select();"/>
+								</td>
 							</tr>
 							<tr>
 								<td>c_variation_0_tissue_generic</td>
@@ -399,12 +476,12 @@
 									</ol>
 									<strong>***</strong> This method will always apply the [PUS] tag.
 									</br>Filled example:
-									<input type="text" readonly value="[APPLY_CREATURE_VARIATION:STANDARD_TISSUES_CREATURE:HORSE]" onclick="this.select();"/>
+									<input type="text" readonly value="[APPLY_CREATURE_VARIATION:PUS_INFECTWOUNDS_INFECTROT:YES:YES]" onclick="this.select();"/>
 								</td>
 							</tr>
 							<tr>
 								<td>c_variation_0_tissue_modular</td>
-								<td>STANDARD_TISSUES_CREATURE</td>
+								<td>STANDARD_CREATURE_TISSUES</td>
 								<td>
 									<ol>
 										<li>&lt;creature_id&gt;</li>
@@ -415,12 +492,12 @@
 										<li>Creature to take the materials from.</li>
 									</ol>
 									</br>Filled example:
-									<input type="text" readonly value="[APPLY_CREATURE_VARIATION:STANDARD_TISSUES_CREATURE:HORSE]" onclick="this.select();"/>
+									<input type="text" readonly value="[APPLY_CREATURE_VARIATION:STANDARD_CREATURE_TISSUES:HORSE]" onclick="this.select();"/>
 								</td>
 							</tr>
 							<tr>
 								<td>c_variation_0_tissue_modular</td>
-								<td>STANDARD_TISSUES_CREATURE_LITE</td>
+								<td>STANDARD_CREATURE_TISSUES_LITE</td>
 								<td>
 									<ol>
 										<li>&lt;creature_id&gt;</li>
@@ -432,7 +509,7 @@
 									</ol>
 									<strong>***</strong> This version only adds internal materials like organs,
 									</br>Filled example:
-									<input type="text" readonly value="[APPLY_CREATURE_VARIATION:STANDARD_TISSUES_CREATURE_LITE:HORSE]" onclick="this.select();"/>
+									<input type="text" readonly value="[APPLY_CREATURE_VARIATION:STANDARD_CREATURE_TISSUES_LITE:HORSE]" onclick="this.select();"/>
 								</td>
 							</tr>							
 							<tr>
@@ -514,7 +591,15 @@
 					<div class="cell containerback rightroundedcorners">
 						<h2 id="quickcopycv">Quick Copy Templates</h2>
 						<p>Clicking a box will select all the text for you to CTRL-C and CTRL-V later.</p>
-						<p>Things are sorted as close as possbile to A-Z
+						<p>Things are sorted as close as possbile to A-Z</p>
+						<h3>BDPs also known as Body Detail Plans</h3>
+						<ul id="quickselectlist">
+							<li><input type="text" readonly value="[BODY_DETAIL_PLAN:EXOSKELETON_TISSUE_LAYERS_SUFFIX:chitin:fat:muscle:tissue_id_suffix]" onclick="this.select();"/></li>
+							<li><input type="text" readonly value="[BODY_DETAIL_PLAN:MOLLUSC_TISSUE_LAYERS_SUFFIX:chitin:fat:muscle:tissue_id_suffix]" onclick="this.select();"/></li>
+							<li><input type="text" readonly value="[BODY_DETAIL_PLAN:VERTEBRATE_TISSUE_LAYERS_CARTILAGE_SUFFIX:skin:fat:muscle:bone:tissue_id_suffix]" onclick="this.select();"/></li>
+						</ul>
+						
+						<h3>CVs also known as Creature Variations</h3>
 						<ul id="quickselectlist">
 							<li><input type="text" readonly value="[APPLY_CREATURE_VARIATION:ADD_TISSUE:id:template:material|sub_material]" onclick="this.select();"/></li>
 							<li><input type="text" readonly value="[APPLY_CREATURE_VARIATION:ADD_TISSUE_NAME:id:template:material|sub_material:sing|plur/NP]" onclick="this.select();"/></li>
@@ -527,8 +612,8 @@
 							<li><input type="text" readonly value="[APPLY_CREATURE_VARIATION:MOD_TISSUE_MAT_NAME:tissue_id:material|sub_material:sing|plur/NP]" onclick="this.select();"/></li>
 							<li><input type="text" readonly value="[APPLY_CREATURE_VARIATION:NAIL_TISSUE_CREATURE:creature_id:nail_type:layer_on_fingers:layer_on_toes]" onclick="this.select();"/></li>
 							<li><input type="text" readonly value="[APPLY_CREATURE_VARIATION:PUS_INFECTWOUNDS_INFECTROT:infections_from_wounds:infections_from_rot]" onclick="this.select();"/></li>
-							<li><input type="text" readonly value="[APPLY_CREATURE_VARIATION:STANDARD_TISSUES_CREATURE:creature_id]" onclick="this.select();"/></li>
-							<li><input type="text" readonly value="[APPLY_CREATURE_VARIATION:STANDARD_TISSUES_CREATURE_LITE:creature_id]" onclick="this.select();"/></li>
+							<li><input type="text" readonly value="[APPLY_CREATURE_VARIATION:STANDARD_CREATURE_TISSUES:creature_id]" onclick="this.select();"/></li>
+							<li><input type="text" readonly value="[APPLY_CREATURE_VARIATION:STANDARD_CREATURE_TISSUES_LITE:creature_id]" onclick="this.select();"/></li>
 							<li><input type="text" readonly value="[APPLY_CREATURE_VARIATION:STRAND_TISSUES_CREATURE:creature_id:strand_type]" onclick="this.select();"/></li>
 							<li><input type="text" readonly value="[APPLY_CREATURE_VARIATION:SWEAT_CRY_SPIT:does_sweat:does_cry:does_spit]" onclick="this.select();"/></li>
 							<li><input type="text" readonly value="[APPLY_CREATURE_VARIATION:TENDONS_LIGAMENTS_CREATURE:creature_id:healing_rate]" onclick="this.select();"/></li>
