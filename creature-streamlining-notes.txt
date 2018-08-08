@@ -1,0 +1,6 @@
+Adder, Copperhead snake, Kingsnake, Rattlesnake, Anaconda, Black mamba, Bushmaster, King cobra, Python -> Snake, Venomous snake
+Anything sub 1k size (Cavy, Rabbit) -> Vermin
+The rest is done.
+I also considered:
+Alpaca, Blue peafowl, Cavy, Guineafowl, Llama, Rabbit, Reindeer, Water buffalo, Yak -> No longer domestic
+Since half of them will be vermin and the other half aren't exactly common domestics.
