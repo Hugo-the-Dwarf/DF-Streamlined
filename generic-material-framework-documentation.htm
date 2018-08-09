@@ -13,7 +13,7 @@
 			table tr:nth-child(2n){background-color:#BFBFBF;}
 		
 			#quickselectlist li {margin-bottom:5px;}
-			#quickselectlist input {height:30px;}
+			#quickselectlist input[type="text"] {height:30px;}
 		
 			.yellow {background-color:#E8D109;}
 			.red {background-color:#E80951;}
@@ -95,7 +95,7 @@
 									<li>sweat_cry_spit (<strong>yes, yes, yes</strong>)</li>
 									<li>blood_type (<strong>blood_color</strong>)</li>
 									<li>pus_infectwounds_infectrot (<strong>yes, yes</strong>)</li>
-									<li>egg_layers (<strong>creature_id, is_leathery, eggsize</strong>)</li>
+									<li>egg_layers_leathery_size (<strong>creature_id, is_leathery, eggsize</strong>)</li>
 								</ul>
 							</li>
 							<li>
@@ -348,7 +348,7 @@
 							</tr>
 							<tr>
 								<td>c_variation_0_basic</td>
-								<td>EGG_LAYERS</td>
+								<td>EGG_LAYERS_LEATHERY_SIZE</td>
 								<td>
 									<ol>
 										<li>&lt;creature_id&gt;</li>
@@ -363,7 +363,7 @@
 										<li>Size of the egg(s) in cm<sup>3</sup></li>
 									</ol>
 									</br>Filled example:
-									<input type="text" readonly value="[APPLY_CREATURE_VARIATION:EGG_LAYERS:SNAKE:NO:600]" onclick="this.select();"/>
+									<input type="text" readonly value="[APPLY_CREATURE_VARIATION:EGG_LAYERS_LEATHERY_SIZE:SNAKE:NO:600]" onclick="this.select();"/>
 								</td>
 							</tr>
 							<tr>
@@ -608,6 +608,9 @@
 							<li><input type="text" readonly value="[APPLY_CREATURE_VARIATION:COPY_CREATURE_TISSUE_TEMPLATE:creature:tissue:tissue_template]" onclick="this.select();"/></li>
 							<li><input type="text" readonly value="[APPLY_CREATURE_VARIATION:COPY_CREATURE_TISSUE_TEMPLATE_NAME:creature:tissue:tissue_template:tissue_name]" onclick="this.select();"/></li>
 							<li><input type="text" readonly value="[APPLY_CREATURE_VARIATION:COPY_TWO_CREATURE_TISSUES:creature:tissue:tissue]" onclick="this.select();"/></li>
+							<li><input type="text" readonly value="[APPLY_CREATURE_VARIATION:EGG_LAYERS_LEATHERY_SIZE:creature_id:is_leathery:eggsize]" onclick="this.select();"/></li>
+							<li><input type="text" readonly value="[APPLY_CREATURE_VARIATION:EYE_FEATURES_TISSUE_CREATURE:creature_id]" onclick="this.select();"/></li>
+							<li><input type="text" readonly value="[APPLY_CREATURE_VARIATION:FACIAL_HAIR_TISSUE_CREATURE:creature_id]" onclick="this.select();"/></li>
 							<li><input type="text" readonly value="[APPLY_CREATURE_VARIATION:MOD_TISSUE_MAT:tissue_id:material|sub_material]" onclick="this.select();"/></li>
 							<li><input type="text" readonly value="[APPLY_CREATURE_VARIATION:MOD_TISSUE_MAT_NAME:tissue_id:material|sub_material:sing|plur/NP]" onclick="this.select();"/></li>
 							<li><input type="text" readonly value="[APPLY_CREATURE_VARIATION:NAIL_TISSUE_CREATURE:creature_id:nail_type:layer_on_fingers:layer_on_toes]" onclick="this.select();"/></li>

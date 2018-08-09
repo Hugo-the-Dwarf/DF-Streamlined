@@ -182,8 +182,6 @@ Hyenas were sponsored by the generous contributions of the Bay 12 community.
 		[SET_TL_GROUP:BY_CATEGORY:EYE:EYE]
 			[TL_COLOR_MODIFIER:IRIS_EYE_ORANGE:1]
 				[TLCM_NOUN:eyes:PLURAL]
-	[SELECT_MATERIAL:ALL]
-		[MULTIPLY_VALUE:2]
 
 Monitor lizards were sponsored by the generous contributions of the Bay 12 community.
 
@@ -213,7 +211,6 @@ Monitor lizards were sponsored by the generous contributions of the Bay 12 commu
 	[APPLY_CREATURE_VARIATION:STANDARD_CREATURE_TISSUES:xxxxx]		[REMOVE_TISSUE:SKIN]		[REMOVE_TISSUE:HAIR]		[APPLY_CREATURE_VARIATION:COPY_CREATURE_TISSUE:xxxxx:SCALE]
 	[BODY_DETAIL_PLAN:VERTEBRATE_TISSUE_LAYERS:SCALE:FAT:MUSCLE:BONE:CARTILAGE]
 	[APPLY_CREATURE_VARIATION:NAIL_TISSUE_CREATURE:xxxxx:CLAW:NO:YES]
-	--BODY_DETAIL_PLAN:LEATHERY_EGG_MATERIALS--
 	[SELECT_TISSUE_LAYER:HEART:BY_CATEGORY:HEART]
 	 [PLUS_TISSUE_LAYER:SCALE:BY_CATEGORY:THROAT]
 		[TL_MAJOR_ARTERIES]
@@ -249,7 +246,7 @@ Monitor lizards were sponsored by the generous contributions of the Bay 12 commu
 	[MUNDANE]
 	[CASTE:FEMALE]
 		[FEMALE]
-		[APPLY_CREATURE_VARIATION:EGG_LAYERS:xxxxx:YES:70]
+		[APPLY_CREATURE_VARIATION:EGG_LAYERS_LEATHERY_SIZE:xxxxx:YES:70]
 			[CLUTCH_SIZE:15:25]
 	[CASTE:MALE]
 		[MALE]
@@ -260,8 +257,6 @@ Monitor lizards were sponsored by the generous contributions of the Bay 12 commu
 		[SET_TL_GROUP:BY_CATEGORY:EYE:EYE]
 			[TL_COLOR_MODIFIER:BLACK:1]
 				[TLCM_NOUN:eyes:PLURAL]
-	[SELECT_MATERIAL:ALL]
-		[MULTIPLY_VALUE:2]
 
 King cobras were sponsored by the generous contributions of the Bay 12 community.
 
@@ -286,7 +281,6 @@ King cobras were sponsored by the generous contributions of the Bay 12 community
 	[BODY:BASIC_1PARTBODY:BASIC_HEAD:TAIL:2EYES:NOSE:2LUNGS:HEART:GUTS:ORGANS:SPINE:BRAIN:SKULL:MOUTH:GENERIC_TEETH_WITH_FANGS:RIBCAGE]
 	[APPLY_CREATURE_VARIATION:STANDARD_CREATURE_TISSUES:xxxxx]		[REMOVE_TISSUE:SKIN]		[REMOVE_TISSUE:HAIR]		[APPLY_CREATURE_VARIATION:COPY_CREATURE_TISSUE:xxxxx:SCALE]
 	[BODY_DETAIL_PLAN:VERTEBRATE_TISSUE_LAYERS:SCALE:FAT:MUSCLE:BONE:CARTILAGE]
-	--BODY_DETAIL_PLAN:LEATHERY_EGG_MATERIALS--
 	[SELECT_TISSUE_LAYER:HEART:BY_CATEGORY:HEART]
 	 [PLUS_TISSUE_LAYER:SCALE:BY_CATEGORY:THROAT]
 		[TL_MAJOR_ARTERIES]
@@ -339,7 +333,7 @@ King cobras were sponsored by the generous contributions of the Bay 12 community
 	[MUNDANE]
 	[CASTE:FEMALE]
 		[FEMALE]
-		[APPLY_CREATURE_VARIATION:EGG_LAYERS:xxxxx:YES:5]
+		[APPLY_CREATURE_VARIATION:EGG_LAYERS_LEATHERY_SIZE:xxxxx:YES:5]
 			[CLUTCH_SIZE:10:30] 20 to 40
 	[CASTE:MALE]
 		[MALE]
@@ -350,8 +344,6 @@ King cobras were sponsored by the generous contributions of the Bay 12 community
 		[SET_TL_GROUP:BY_CATEGORY:EYE:EYE]
 			[TL_COLOR_MODIFIER:BLACK:1]
 				[TLCM_NOUN:eyes:PLURAL]
-	[SELECT_MATERIAL:ALL]
-		[MULTIPLY_VALUE:2]
 
 Ocelots were sponsored by the generous contributions of the Bay 12 community.
 
@@ -442,8 +434,6 @@ Ocelots were sponsored by the generous contributions of the Bay 12 community.
 		[SET_TL_GROUP:BY_CATEGORY:EYE:EYE]
 			[TL_COLOR_MODIFIER:IRIS_EYE_GREEN-YELLOW:1]
 				[TLCM_NOUN:eyes:PLURAL]
-	[SELECT_MATERIAL:ALL]
-		[MULTIPLY_VALUE:2]
 
 Jackals were sponsored by the generous contributions of the Bay 12 community.
 
@@ -531,8 +521,6 @@ Jackals were sponsored by the generous contributions of the Bay 12 community.
 		[SET_TL_GROUP:BY_CATEGORY:EYE:EYE]
 			[TL_COLOR_MODIFIER:IRIS_EYE_ORANGE:1]
 				[TLCM_NOUN:eyes:PLURAL]
-	[SELECT_MATERIAL:ALL]
-		[MULTIPLY_VALUE:2]
 
 Sloths were sponsored by the generous contributions of the Bay 12 community.
 
@@ -642,14 +630,9 @@ Pangolins were sponsored by the generous contributions of the Bay 12 community.
 	[BODY:QUADRUPED_NECK:TAIL:2EYES:2EARS:NOSE:2LUNGS:HEART:GUTS:ORGANS:THROAT:NECK:SPINE:BRAIN:SKULL:5TOES_FQ_REG:5TOES_RQ_REG:MOUTH:TONGUE:RIBCAGE]
 	[BODYGLOSS:PAW]
 	[GRASSTRAMPLE:0]
-	[BODY_DETAIL_PLAN:STANDARD_MATERIALS]
-		[REMOVE_MATERIAL:SKIN]
-		[REMOVE_MATERIAL:LEATHER]
-		[REMOVE_MATERIAL:PARCHMENT]
-		[USE_MATERIAL_TEMPLATE:SCALE:SCALE_TEMPLATE]
-	[BODY_DETAIL_PLAN:STANDARD_TISSUES]
+	[APPLY_CREATURE_VARIATION:STANDARD_CREATURE_TISSUES:xxxxx]
 		[REMOVE_TISSUE:SKIN]
-		[USE_TISSUE_TEMPLATE:SCALE:SCALE_TEMPLATE]
+		[APPLY_CREATURE_VARIATION:COPY_CREATURE_TISSUE:xxxxx:SCALE]
 		[SELECT_TISSUE:HAIR]
 			[INSULATION:100]
 	[BODY_DETAIL_PLAN:VERTEBRATE_TISSUE_LAYERS:SCALE:FAT:MUSCLE:BONE:CARTILAGE]
@@ -798,8 +781,6 @@ Sloth bears were sponsored by the generous contributions of the Bay 12 community
 		[SET_TL_GROUP:BY_CATEGORY:EYE:EYE]
 			[TL_COLOR_MODIFIER:IRIS_EYE_BROWN:1]
 				[TLCM_NOUN:eyes:PLURAL]
-	[SELECT_MATERIAL:ALL]
-		[MULTIPLY_VALUE:2]
 
 Tapirs were sponsored by the generous contributions of the Bay 12 community.
 
@@ -880,25 +861,7 @@ Tapirs were sponsored by the generous contributions of the Bay 12 community.
 	[CASTE:FEMALE]
 		[FEMALE]
 		[MULTIPLE_LITTER_RARE]
-		[USE_MATERIAL_TEMPLATE:MILK:MILK_TEMPLATE]
-			[STATE_NAME:ALL_SOLID:frozen tapir's milk]
-			[STATE_ADJ:ALL_SOLID:frozen tapir's milk]
-			[STATE_NAME:LIQUID:tapir's milk]
-			[STATE_ADJ:LIQUID:tapir's milk]
-			[STATE_NAME:GAS:boiling tapir's milk]
-			[STATE_ADJ:GAS:boiling tapir's milk]
-			[PREFIX:NONE]
-		[MILKABLE:LOCAL_CREATURE_MAT:MILK:20000]
-		[USE_MATERIAL_TEMPLATE:CHEESE:CREATURE_CHEESE_TEMPLATE]
-			[STATE_NAME:SOLID:tapir cheese]
-			[STATE_ADJ:SOLID:tapir cheese]
-			[STATE_NAME:SOLID_POWDER:tapir cheese powder]
-			[STATE_ADJ:SOLID_POWDER:tapir cheese powder]
-			[STATE_NAME:LIQUID:melted tapir cheese]
-			[STATE_ADJ:LIQUID:melted tapir cheese]
-			[STATE_NAME:GAS:boiling tapir cheese]
-			[STATE_ADJ:GAS:boiling tapir cheese]
-			[PREFIX:NONE]
+		[MILKABLE:CREATURE_MAT:MAT_GENERIC:MILK:20000]
 	[CASTE:MALE]
 		[MALE]
 		[SET_BP_GROUP:BY_TYPE:LOWERBODY][BP_ADD_TYPE:GELDABLE]
