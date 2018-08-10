@@ -49,8 +49,11 @@ creature_0_mat_generic_base
 			[STATE_NAME:GAS:boiling cheese]
 			[STATE_ADJ:GAS:boiling cheese]
 			[PREFIX:NONE]
-			
+
 	[USE_MATERIAL_TEMPLATE:SILK:SILK_TEMPLATE]
+	
+	[USE_MATERIAL_TEMPLATE:INK:INK_TEMPLATE]
+		[STATE_COLOR:ALL:BLACK]
 	
 	--Note ensure updates to honey base reactions are more genric instead of
 	--using BEE hard references, can probably sneak some material_reaction_products in
