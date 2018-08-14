@@ -1,4 +1,4 @@
-creature_0_mat_humanoid
+creature_1_mat_humanoid
 
 [OBJECT:CREATURE]
 
