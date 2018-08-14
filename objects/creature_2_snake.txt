@@ -1,4 +1,4 @@
-creature_1_snake
+creature_2_snake
 
 [OBJECT:CREATURE]
 
