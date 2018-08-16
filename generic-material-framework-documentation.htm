@@ -118,9 +118,15 @@
 									<li>tendons_ligaments_default (<strong></strong>)</li>
 									<li>eye_features_tissue_creature (<strong>creature_id</strong>)</li>
 									<li>facial_hair_tissue_creature (<strong>creature_id</strong>)</li>
-									<li>nail_tissue_creature (<strong>creature_id, nail_type, layer_on_fingers, layer_on_toes</strong>)</li>					
+									<li>nail_tissue_creature (<strong>creature_id, nail_type, layer_on_fingers, layer_on_toes</strong>)</li>
+								</ul>
+							</li>
+							<li>
+								<h3>c_variation_0_tissue_vanilla_clone</h3>
+								<ul>
 									<li>standard_creature_tissues (<strong>creature_id</strong>)</li>
 									<li>standard_creature_tissues_lite (<strong>creature_id</strong>)</li>
+									<li>chitin_creature_tissues (<strong>creature_id</strong>)</li>
 								</ul>
 							</li>
 						</ul>
@@ -267,6 +273,23 @@
 									</br>Filled example:
 									<input type="text" readonly value="[APPLY_CREATURE_VARIATION:BLOOD_TYPE:RED]" onclick="this.select();"/>
 								</td>								
+							</tr>
+							<tr>
+								<td>c_variation_0_tissue_vanilla_clone</td>
+								<td>CHITIN_CREATURE_TISSUES</td>
+								<td>
+									<ol>
+										<li>&lt;creature_id&gt;</li>
+									</ol>
+								</td>
+								<td>
+									<ol>										
+										<li>This will be the creature that will be used to set the material, it also assumes that the &lt;tissue_id&gt; also matches the material_id, like the above example of FAT in vanilla there is a FAT material, FAT tissue template, and then the FAT tissue that is built from the tissue template and uses the FAT material.</li>										
+									</ol>
+									<strong>***</strong> This method basically adds all tissues that vanilla's BDP CHITIN_TISSUES adds, only sets the material to that of the picked creature
+									</br>Filled example:
+									<input type="text" readonly value="[APPLY_CREATURE_VARIATION:CHITIN_CREATURE_TISSUES:CAT]" onclick="this.select();"/>
+								</td>
 							</tr>
 							<tr>
 								<td>c_variation_0_tissue_generic</td>
@@ -479,7 +502,7 @@
 								</td>
 							</tr>
 							<tr>
-								<td>c_variation_0_tissue_modular</td>
+								<td>c_variation_0_tissue_vanilla_clone</td>
 								<td>STANDARD_CREATURE_TISSUES</td>
 								<td>
 									<ol>
@@ -495,7 +518,7 @@
 								</td>
 							</tr>
 							<tr>
-								<td>c_variation_0_tissue_modular</td>
+								<td>c_variation_0_tissue_vanilla_clone</td>
 								<td>STANDARD_CREATURE_TISSUES_LITE</td>
 								<td>
 									<ol>
@@ -603,6 +626,7 @@
 							<li><input type="text" readonly value="[APPLY_CREATURE_VARIATION:ADD_TISSUE:id:template:material|sub_material]" onclick="this.select();"/></li>
 							<li><input type="text" readonly value="[APPLY_CREATURE_VARIATION:ADD_TISSUE_NAME:id:template:material|sub_material:sing|plur/NP]" onclick="this.select();"/></li>
 							<li><input type="text" readonly value="[APPLY_CREATURE_VARIATION:BLOOD_TYPE:blood_type]" onclick="this.select();"/></li>
+							<li><input type="text" readonly value="[APPLY_CREATURE_VARIATION:CHITIN_CREATURE_TISSUES:creature]" onclick="this.select();"/></li>
 							<li><input type="text" readonly value="[APPLY_CREATURE_VARIATION:COPY_CREATURE_TISSUE:creature:tissue]" onclick="this.select();"/></li>
 							<li><input type="text" readonly value="[APPLY_CREATURE_VARIATION:COPY_CREATURE_TISSUE_TEMPLATE:creature:tissue:tissue_template]" onclick="this.select();"/></li>
 							<li><input type="text" readonly value="[APPLY_CREATURE_VARIATION:COPY_CREATURE_TISSUE_TEMPLATE_NAME:creature:tissue:tissue_template:tissue_name]" onclick="this.select();"/></li>
