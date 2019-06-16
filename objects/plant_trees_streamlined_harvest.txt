@@ -1,0 +1,4 @@
+plant_trees_streamlined_harvest
+
+[OBJECT:PLANT]
+
